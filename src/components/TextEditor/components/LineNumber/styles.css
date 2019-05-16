@@ -1,0 +1,13 @@
+.LineNumber {
+  display: flex;
+  flex-direction: column;
+  background-color: #292C35;
+  color: #4D5059;
+  float: left;
+  padding: 0px 10px;
+}
+
+.LineNumber .item {
+  width:100%;
+  text-align: right;
+}

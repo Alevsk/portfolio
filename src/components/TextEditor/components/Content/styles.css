@@ -1,0 +1,9 @@
+.Content {
+  text-align: left;
+  white-space: pre-line;
+  display: flex;
+  flex-direction: column;
+  background-color: #292C35;
+  color: #A3A6AF;
+  padding-left: 5px;
+}
