@@ -1,0 +1,36 @@
+.Navigation {
+  font-size: 12px;
+  width: 100vw;
+  display: flex;
+  background-color: #22252E;
+  position: fixed;
+}
+
+.Navigation ul {
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+.Navigation ul li {
+  display: inline;
+  background-color: #22252E;
+  border-right: 1px solid #000000;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.Navigation ul li.active {
+  background-color: #292C35;
+}
+
+.Navigation ul li:hover, .Navigation ul li.active:hover {
+  background-color: #34393F;
+}
+
+.Navigation ul li span.fileName {
+  color: #6E6F72;
+}
+
+.Navigation ul li span.folderName {
+  color: #4F5257;
+}

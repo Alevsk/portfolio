@@ -1,4 +1,5 @@
 import React from 'react';
+import Navigation from './components/Navigation';
 import LineNumber from './components/LineNumber';
 import Content from './components/Content';
 import './styles.css';
@@ -34,12 +35,36 @@ function TextEditor() {
     _.each(array, function (value, key) {
       console.log(value, key);
     });
-    And you will get the same result. The complexity is the same as the previous one (so no performance issue).`
+    And you will get the same result. The complexity is the same as the previous one (so no performance issue).
+    
+    You can use lodash range
+    https://lodash.com/docs/4.17.4#range
+
+    _.range(5, 10).forEach((current, index, range) => {
+        console.log(current, index, range)
+    })
+
+    // 5, 0, [5, 6, 7, 8, 9, 10]
+    // 6, 1, [5, 6, 7, 8, 9, 10]
+    // 7, 2, [5, 6, 7, 8, 9, 10]
+    // 8, 3, [5, 6, 7, 8, 9, 10]
+    // 9, 4, [5, 6, 7, 8, 9, 10]
+    // 10, 5, [5, 6, 7, 8, 9, 10]
+
+    It seems there is no lodash way for writing loose for loops (those not iterating over a collection), but here is a simplified version of it:
+
+    for (var i = 0; i < end - b; i++) {
+          var start = i + b;
+          // code goes here
+    }`
   const lines = (content.match(/\n/g) || '').length + 1
   return (
-    <div className="TextEditor">
-      <LineNumber lines={lines}/>
-      <Content content={content}/>
+    <div>
+      <Navigation files={null}/>
+      <div className="TextEditor">
+        <LineNumber lines={lines}/>
+        <Content content={content}/>
+      </div>
     </div>
   );
 }
