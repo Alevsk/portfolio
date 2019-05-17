@@ -32,6 +32,14 @@
   color: #6E6F72;
 }
 
+.Navigation ul li.active span.file {
+  color: #FFFFFF;
+}
+
 .Navigation ul li span.folder {
   color: #4F5257;
+}
+
+.Navigation ul li.active span.folder {
+  color: #BBBCC1;
 }
