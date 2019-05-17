@@ -1,0 +1,15 @@
+.Tab span {
+  margin-right: 5px;
+  position: relative;
+}
+
+.Tab span.icon {
+  margin-right: 25px;
+}
+
+.Tab span.icon img {
+  width: 20px;
+  height: 20px;
+  top: -3px;
+  position: absolute;
+}
