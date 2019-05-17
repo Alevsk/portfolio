@@ -1,9 +1,10 @@
 .Navigation {
   font-size: 12px;
   width: 100vw;
-  display: flex;
   background-color: #22252E;
+  text-align: left;
   position: fixed;
+  top: 0;
 }
 
 .Navigation ul {

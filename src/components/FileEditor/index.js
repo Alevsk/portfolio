@@ -1,10 +1,9 @@
 import React from 'react';
 import Navigation from './components/Navigation';
-import LineNumber from './components/LineNumber';
-import Content from './components/Content';
+import TextEditor from './components/TextEditor';
 import './styles.css';
 
-function TextEditor() {
+function FileEditor() {
   const content = `I will imagine that b = 3 and end = 10 if I run your code and print the variables here is what I will get:
 
     var b = 3;
@@ -57,16 +56,14 @@ function TextEditor() {
           var start = i + b;
           // code goes here
     }`
-  const lines = (content.match(/\n/g) || '').length + 1
   return (
-    <div>
-      <Navigation files={null}/>
-      <div className="TextEditor">
-        <LineNumber lines={lines}/>
-        <Content content={content}/>
+    <div className="FileEditor">
+      <div className="wrapper">
+        <Navigation files={null}/>
+        <TextEditor content={content} />
       </div>
     </div>
   );
 }
 
-export default TextEditor;
+export default FileEditor;
