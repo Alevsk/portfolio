@@ -1,0 +1,8 @@
+.ActivityBar {
+  list-style: none;
+  padding: 0px 8px;
+}  
+.ActivityBar li {
+  margin: 20px 0px;
+  clear: both;
+}

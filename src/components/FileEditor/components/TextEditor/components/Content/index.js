@@ -11,10 +11,12 @@ function Content(props) {
       style={atomOneDark}
       showLineNumbers
       className="Content"
+      customStyle={{
+        padding: '0px',
+      }}
       lineNumberContainerStyle={{
         float: 'left',
         paddingRight: '15px',
-        paddingLeft: '10px',
         textAlign: 'right',
         color: '#4D5059',
       }}

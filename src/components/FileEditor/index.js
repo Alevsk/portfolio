@@ -5,7 +5,7 @@ import Navigation from './components/Navigation';
 import TextEditor from './components/TextEditor';
 
 import { getOpenFiles, getSelectedFile } from './data/files/reducer';
-import * as filessActionCreators from './data/files/actions';
+import * as filesActionCreators from './data/files/actions';
 
 import './styles.css';
 
@@ -29,7 +29,7 @@ export default compose(
   connect(mapStateToProps),
   withHandlers({
     dispatchSelectFile: ({ dispatch }) => payload => {
-      dispatch(filessActionCreators.select(payload));
+      dispatch(filesActionCreators.select(payload));
     },
     // dispatchLoginUser: ({ dispatch }) => () => {
     //   dispatch(loginUser());

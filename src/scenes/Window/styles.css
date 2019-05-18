@@ -1,0 +1,22 @@
+.Window {
+  background: rgb(40, 44, 52);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow-x: auto
+}
+
+.Window .ActivityBar {
+  flex: 1 0 auto;
+  position: sticky;
+  left: 0;
+}
+
+.Window .FileEditor {
+  flex: 0 0 auto;
+  overflow: auto;
+  left: 1px;
+}

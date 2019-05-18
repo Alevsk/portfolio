@@ -1,0 +1,7 @@
+.BarIcon {
+  cursor: pointer;
+}
+
+.BarIcon:hover {
+  color: #FFFFFF;
+}

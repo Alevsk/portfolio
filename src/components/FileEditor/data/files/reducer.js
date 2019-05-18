@@ -192,9 +192,3 @@ export const getSelectedFile = state => {
   const selected = state.filter(file => file.selected);
 	return selected.length > 0 ? selected[0] : null;
 }
-
-// export const getRating = state =>
-// 	state.reduce((prev, current) => ({
-// 		...prev,
-// 		[current.rating]: (prev[current.rating] || 0) + 1,
-// 	}), {})

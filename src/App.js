@@ -1,11 +1,11 @@
 import React from 'react';
-import FileEditor from './components/FileEditor'
+import Window from './scenes/Window'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <FileEditor/>
+      <Window/>
     </div>
   );
 }
