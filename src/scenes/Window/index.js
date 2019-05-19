@@ -2,6 +2,7 @@ import React from 'react';
 import { compose } from 'recompose'
 import { connect } from 'react-redux';
 import ActivityBar from './components/ActivityBar';
+import SideBar from './components/SideBar';
 import FileEditor from '../../components/FileEditor'
 
 import './styles.css';
@@ -12,9 +13,8 @@ function Window(props) {
       <div className="ActivityBar">
         <ActivityBar/>
       </div>
-      <div className="FileEditor">
-        <FileEditor/>
-      </div>
+      <SideBar/>
+      <FileEditor/>
     </div>
   );
 }

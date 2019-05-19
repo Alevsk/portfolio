@@ -1,0 +1,42 @@
+.Explorer {
+
+}
+
+.Explorer .Title {
+  background-color: #22252E;
+  color: #FFFFFF;
+  font-size: 10px;
+  padding: 14px 10px;
+  text-align: left;
+}
+
+.Explorer .OpenEditors {
+  text-align: left;
+}
+
+.Explorer .OpenEditors .divider {
+  cursor: pointer;
+  padding: 2px 0px;
+  text-align: left;
+}
+
+.Explorer .OpenEditors .divider .title {
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.Explorer .OpenEditors .divider .icon {
+}
+
+.Explorer .OpenEditors .files {
+  list-style: none;
+  background-color: #22252E;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+.Explorer .ProjectName {
+
+}

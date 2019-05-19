@@ -12,7 +12,13 @@ const initialState = [
 export const reducer = (state = initialState, action) => {
 	switch (action.type) {
     case SELECT:
-    	return state.map((button) => ({ ...button, selected: button.id === action.payload.id }));
+
+    	return state.map((button) => {
+        return {
+          ...button,
+          selected: button.id === action.payload.id && !button.selected,
+        };
+      });
 		default:
 			return state;
 	}
