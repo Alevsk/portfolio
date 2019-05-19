@@ -1,0 +1,22 @@
+.FileRow {
+  display: block;
+  padding: 4px 0px 4px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #CCCCCC;
+}
+
+.FileRow:hover {
+  background-color: #292C35;
+}
+
+.FileRow span {
+  margin-right: 5px;
+  position: relative;
+}
+
+.FileRow span.icon img {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}

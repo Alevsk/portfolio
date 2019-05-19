@@ -29,13 +29,16 @@
 .Explorer .OpenEditors .divider .icon {
 }
 
-.Explorer .OpenEditors .files {
+.Explorer .OpenEditors ul.files {
   list-style: none;
   background-color: #22252E;
   padding: 0px;
   margin: 0px;
 }
 
+.Explorer .OpenEditors ul.files li.active {
+  background-color: #292C35;
+}
 
 .Explorer .ProjectName {
 

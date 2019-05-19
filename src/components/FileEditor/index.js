@@ -5,7 +5,7 @@ import Navigation from './components/Navigation';
 import TextEditor from './components/TextEditor';
 
 import { getOpenFiles, getSelectedFile } from './data/files/reducer';
-import * as filesActionCreators from './data/files/actions';
+import * as filesActionCreators from '../../actions/files/actions';
 
 import './styles.css';
 
@@ -31,11 +31,5 @@ export default compose(
     dispatchSelectFile: ({ dispatch }) => payload => {
       dispatch(filesActionCreators.select(payload));
     },
-    // dispatchLoginUser: ({ dispatch }) => () => {
-    //   dispatch(loginUser());
-    // },
-    // sayHi: () => () => {
-    //   console.log('Hi!!');
-    // }
   })
 )(FileEditor);

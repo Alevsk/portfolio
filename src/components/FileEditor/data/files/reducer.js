@@ -1,4 +1,4 @@
-import { SELECT } from './actions';
+import { SELECT } from '../../../../actions/files/actions';
 
 const initialState = [
   { id: 0, file: 'index.js', folder: '.../TextEditor', selected: true, content: `I will imagine that b = 3 and end = 10 if I run your code and print the variables here is what I will get:

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { getOpenFiles, getSelectedFile } from './selectors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
+import FileRow from './components/FileRow'
+import * as filesActionCreators from '../../../../../../actions/files/actions';
 
 
 import './styles.css';
@@ -26,8 +28,11 @@ function Explorer(props) {
           <span className="title">OPEN EDITORS</span>
         </div>
         <ul className="files">
-          {
-            files.map(file => (<li>{file.file}</li>))
+          { files.map(file => 
+            <FileRow
+              onClick={() => props.dispatchSelectFile(file)}
+              file={file}
+            />)
           }
         </ul>
       </div>
@@ -44,5 +49,8 @@ const mapStateToProps = state => ({
 export default compose(
   connect(mapStateToProps),
   withHandlers({
+    dispatchSelectFile: ({ dispatch }) => payload => {
+      dispatch(filesActionCreators.select(payload));
+    },
   })
 )(Explorer);
