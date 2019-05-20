@@ -54,7 +54,7 @@ for (var i = 0; i < end - b; i++) {
       // code goes here
 }`
   },
-  { id: 1, file: 'index.js', folder: '.../Navigation', content: `You will be able to get the current iteration index for the map API through its 2nd parameter.
+  { id: 1, file: 'store.js', folder: '.../Navigation', content: `You will be able to get the current iteration index for the map API through its 2nd parameter.
 
 See also: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
@@ -120,14 +120,14 @@ Needless to say, I do not get any "Clicked!" coming up in my console. The React 
 
 I conclude, therefore, that I can't register onClick events on the actual <SensorItem /> tags (I'm not sure why this is, however). How do I go about achieving this otherwise?`
 },
-  { id: 3, file: 'index.rb', folder: '.../Ruby', content: `This also works:
+  { id: 3, file: 'state.rb', folder: '.../Ruby', content: `This also works:
 
 I just changed with this.state.color==='white'?'black':'white'.
 
 You can also pick the color from drop-down values and update in place of 'black';
 
 (CodePen)` },
-{ id: 4, file: 'database.go', folder: '.../DataSource', content: `This works
+{ id: 4, file: 'connector.go', folder: '.../DataSource', content: `This works
 
 var Box = React.createClass({
     getInitialState: function() {

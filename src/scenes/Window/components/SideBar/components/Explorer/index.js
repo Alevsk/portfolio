@@ -1,33 +1,33 @@
 import React from 'react';
 import { compose, withHandlers } from 'recompose'
 import { connect } from 'react-redux';
-import { getOpenFiles, getSelectedFile } from './selectors';
+import { getOpenFiles, getSelectedFile, getSectionOpenEditors } from './selectors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
+import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import FileRow from './components/FileRow'
 import * as filesActionCreators from '../../../../../../actions/files/actions';
+import * as sectionOpenEditorsActionCreators from './data/sectionOpenEditors/actions';
 
 
 import './styles.css';
 
 function Explorer(props) {
   const files = props.files;
-  console.log(props.selectedFile);
+  const sectionOpenEditors = props.sectionOpenEditors;
   return (
     <div className="Explorer">
       <div className="Title">EXPLORER</div>
       <div className="OpenEditors">
-        <div className="divider">
+        <div className="divider" onClick={props.dispatchToggleSectionOpenEditors}>
           <FontAwesomeIcon
-              icon={faCaretRight}
+              icon={sectionOpenEditors.display ? faCaretDown : faCaretRight }
               color="#FFFFFF"
               fixedWidth
               className="icon"
-              onClick={() => console.log(1)}
             />
           <span className="title">OPEN EDITORS</span>
         </div>
-        <ul className="files">
+        <ul className={`files ${!sectionOpenEditors.display ? 'hidden' : ''}`}>
           { files.map(file => 
             <FileRow
               onClick={() => props.dispatchSelectFile(file)}
@@ -44,6 +44,7 @@ function Explorer(props) {
 const mapStateToProps = state => ({
   files: getOpenFiles(state),
   selectedFile: getSelectedFile(state),
+  sectionOpenEditors: getSectionOpenEditors(state),
 });
 
 export default compose(
@@ -51,6 +52,9 @@ export default compose(
   withHandlers({
     dispatchSelectFile: ({ dispatch }) => payload => {
       dispatch(filesActionCreators.select(payload));
+    },
+    dispatchToggleSectionOpenEditors: ({ dispatch }) => () => {
+      dispatch(sectionOpenEditorsActionCreators.toggle());
     },
   })
 )(Explorer);
