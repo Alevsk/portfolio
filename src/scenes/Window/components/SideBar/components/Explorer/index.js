@@ -36,7 +36,17 @@ function Explorer(props) {
           }
         </ul>
       </div>
-      <div className="ProjectName"></div>
+      <div className="ProjectName">
+        <div className="divider">
+          <FontAwesomeIcon
+              icon={faCaretRight}
+              color="#FFFFFF"
+              fixedWidth
+              className="icon"
+            />
+          <span className="title">PORTFOLIO</span>
+        </div>
+      </div>
     </div>
   );
 }
