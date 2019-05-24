@@ -1,4 +1,7 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+
 import './styles.css';
 
 function Tab(props) {
@@ -17,6 +20,15 @@ function Tab(props) {
       <span className="icon"><img src={image} alt=""/></span>
       <span className="file">{props.tab.name}</span>
       <span className="folder">{props.tab.folder}</span>
+      <span className="close">
+        <FontAwesomeIcon
+          icon={faTimes}
+          color="#FFFFFF"
+          fixedWidth
+          className="icon"
+          onClick={props.onClickClose}
+        />
+      </span>
     </li>
   );
 }

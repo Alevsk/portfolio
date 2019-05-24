@@ -11,6 +11,7 @@ function Navigation(props) {
           files.map((file) => (<Tab
             key={file.id}
             onClick={() => props.selectFile(file)}
+            onClickClose={() => props.closeFile(file)}
             tab={file}
             />
           ))

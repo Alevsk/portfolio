@@ -13,7 +13,11 @@ function FileEditor(props) {
   return (
     <div className="FileEditor">
       <div className="wrapper">
-        <Navigation files={props.files} selectFile={props.dispatchSelectFile} />
+        <Navigation
+          files={props.files}
+          selectFile={props.dispatchSelectFile}
+          closeFile={props.dispatchCloseFile}
+        />
         <TextEditor selectedFile={props.selectedFile} />
       </div>
     </div>
@@ -30,6 +34,9 @@ export default compose(
   withHandlers({
     dispatchSelectFile: ({ dispatch }) => payload => {
       dispatch(filesActionCreators.select(payload));
+    },
+    dispatchCloseFile: ({ dispatch }) => payload => {
+      dispatch(filesActionCreators.remove(payload));
     },
   })
 )(FileEditor);

@@ -32,8 +32,20 @@
   color: #6E6F72;
 }
 
+.Navigation ul li span.close {
+  visibility: hidden;
+}
+
 .Navigation ul li.active span.file {
   color: #FFFFFF;
+}
+
+.Navigation ul li.active span.close {
+  visibility: visible;
+}
+
+.Navigation ul li:hover span.close {
+  visibility: visible;
 }
 
 .Navigation ul li span.folder {
