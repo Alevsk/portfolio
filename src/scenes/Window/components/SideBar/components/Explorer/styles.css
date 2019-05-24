@@ -10,22 +10,19 @@
   text-align: left;
 }
 
-.Explorer .OpenEditors {
+.Explorer .FileExplorer {
   text-align: left;
 }
 
-.Explorer .OpenEditors ul.files {
+.Explorer .FileExplorer ul.files {
   list-style: none;
   background-color: #22252E;
   padding: 0px;
   margin: 0px;
 }
 
-.Explorer .OpenEditors ul.files li.active {
+.Explorer .FileExplorer ul.files li.active {
   background-color: #292C35;
-}
-
-.Explorer .ProjectName {
 }
 
 .divider {
