@@ -21,7 +21,7 @@ function Content(props) {
         color: '#4D5059',
       }}
     >
-      {props.content}
+      {props.content || ''}
     </SyntaxHighlighter>
   );
 }

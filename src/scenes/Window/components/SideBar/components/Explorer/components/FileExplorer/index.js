@@ -9,6 +9,7 @@ import './styles.css';
 function FileExplorer(props) {
   const files = props.files;
   const displayFileTree = props.displayFileTree;
+  const selectedFile = props.selectedFile || {};
   return (
     <div className="FileExplorer">
       <div className="divider" onClick={props.toggleDisplayFileTree}>
@@ -23,6 +24,7 @@ function FileExplorer(props) {
       <ul className={`files ${!displayFileTree ? 'hidden' : ''}`}>
         { files.map(file => 
           <FileRow
+            selected={file.id === selectedFile.id}
             key={file.id}
             onClick={() => props.dispatchSelectFile(file)}
             file={file}

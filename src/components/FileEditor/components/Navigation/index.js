@@ -9,7 +9,7 @@ function Navigation(props) {
       <ul className="list">
         {
           files.map((file) => (<Tab
-            key={`${file.folder}/${file.file}`}
+            key={file.id}
             onClick={() => props.selectFile(file)}
             tab={file}
             />
