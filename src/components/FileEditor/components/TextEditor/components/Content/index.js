@@ -7,7 +7,7 @@ import './styles.css';
 function Content(props) {
   return (
     <SyntaxHighlighter
-      language='javascript'
+      language={props.file.language}
       style={atomOneDark}
       showLineNumbers
       className="Content"
@@ -21,7 +21,7 @@ function Content(props) {
         color: '#4D5059',
       }}
     >
-      {props.content || ''}
+      {props.file.content || ''}
     </SyntaxHighlighter>
   );
 }

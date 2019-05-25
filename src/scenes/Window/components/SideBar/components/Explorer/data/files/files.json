@@ -1,0 +1,17 @@
+[{
+	"id": 0,
+	"name": "welcome.js",
+	"content": "const name = \"Lenin Alevski Huerta Arias\";\n\nconst title = [\"Software Engineer\", \"FullStack Engineer\"];\n\nconst location = \"Guadalajara, Mexico\";\n\nconst experience = [\n  {\n    company: \"OneLogin\",\n    website: \"https://www.onelogin.com/\",\n    title: \"Software Engineer\",\n    from: \"January 2019\",\n    to: \"Present\",\n    description: \"Distributed systems Engineer specialized in application security.\",\n  },\n  {\n    company: \"Freeagent CRM\",\n    website: \"https://freeagentcrm.com/\",\n    title: \"Senior Software Engineer\",\n    from: \"November 2016\",\n    to: \"December 2018\",\n    description: \"Platform developer building distributed and highly scalable systems using a very interesting stack of technologies.\",\n  },\n  {\n    company: \"Oracle\",\n    website: \"https://www.oracle.com/\",\n    title: \"Software Engineer\",\n    from: \"March 2016\",\n    to: \"October 2016\",\n    description: \"As a member of the software engineering division I apply my knowledge of software architecture and information security to perform software development tasks associated with debugging, QA testing and security testing.\",\n  },\n  {\n    company: \"Websec Mexico\",\n    website: \"https://www.websec.mx/\",\n    title: \"Software Engineer\",\n    from: \"May 2012\",\n    to: \"March 2016\",\n    description: \"Cybersecurity consultant focused on code reviews, web and network penetration testing.\",\n  },\n];\n\nconst expertise = [\n  \"Software development\",\n  \"Distributed Systems\",\n  \"System Architecture\",\n  \"Information Security\",\n];\n\nconst interests = [\"cybersecurity\", \"microservices\", \"docker\", \"aws\", \"gcloud\", \"kubernetes\", \"scalability\"];\n  "
+}, {
+	"id": 1,
+	"name": "skills.go"
+}, {
+	"id": 2,
+	"name": "talks.rb"
+}, {
+	"id": 3,
+	"name": "work.py"
+}, {
+	"id": 4,
+	"name": "contact.java"
+}]

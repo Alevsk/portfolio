@@ -1,12 +1,14 @@
-import { faCopy, faSearch } from '@fortawesome/free-solid-svg-icons'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faCopy } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faTwitter, faWordpress, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import { SELECT } from './actions';
 
 const initialState = [
   { id: 'explorer', icon: faCopy, selected: true },
-  { id: 'search', icon: faSearch },
-  { id: 'github', icon: faGithub },
+  { id: 'wordpress', icon: faWordpress, url: 'https://www.alevsk.com' },
+  { id: 'linkedin', icon: faLinkedin, url: 'https://www.linkedin.com/in/alevsk/' },
+  { id: 'github', icon: faGithub, url: 'https://github.com/alevsk' },
+  { id: 'twitter', icon: faTwitter, url: 'https://twitter.com/alevskey' },
 ];
 
 export const reducer = (state = initialState, action) => {

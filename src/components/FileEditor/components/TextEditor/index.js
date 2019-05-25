@@ -6,7 +6,7 @@ function TextEditor(props) {
   const file = props.selectedFile || { content: '' };
   return (
     <div className="TextEditor">
-      <Content content={file.content}/>
+      <Content file={file}/>
     </div>
   );
 }
