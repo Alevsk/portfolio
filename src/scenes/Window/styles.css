@@ -9,10 +9,13 @@
   overflow-x: auto
 }
 
-.Window .ActivityBar {
+.Window .StickyBar {
+  display: flex;
   flex: 1 0 auto;
   position: sticky;
   left: 0;
+  z-index: 9;
+  background-color: #292C35;
 }
 
 .Window .FileEditor {

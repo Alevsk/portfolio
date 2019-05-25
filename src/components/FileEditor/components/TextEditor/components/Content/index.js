@@ -12,11 +12,11 @@ function Content(props) {
       showLineNumbers
       className="Content"
       wrapLines
-      // lineProps={{
-      //   style: {
-      //     'word-wrap': 'break-word',
-      //   }
-      // }}
+      lineProps={{
+        style: {
+          whiteSpace: 'pre-wrap',
+        }
+      }}
       customStyle={{
         padding: '0px',
       }}

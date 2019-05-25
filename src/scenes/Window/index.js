@@ -10,10 +10,12 @@ import './styles.css';
 function Window(props) {
   return (
     <div className="Window">
-      <div className="ActivityBar">
-        <ActivityBar/>
+      <div className="StickyBar">
+        <div className="ActivityBar">
+          <ActivityBar/>
+        </div>
+        <SideBar/>
       </div>
-      <SideBar/>
       <FileEditor/>
     </div>
   );
