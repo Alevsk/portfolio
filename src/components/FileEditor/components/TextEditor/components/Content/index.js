@@ -11,12 +11,18 @@ function Content(props) {
       style={atomOneDark}
       showLineNumbers
       className="Content"
+      wrapLines
+      // lineProps={{
+      //   style: {
+      //     'word-wrap': 'break-word',
+      //   }
+      // }}
       customStyle={{
         padding: '0px',
       }}
       lineNumberContainerStyle={{
         float: 'left',
-        paddingRight: '15px',
+        padding: '0px 15px',
         textAlign: 'right',
         color: '#4D5059',
       }}
