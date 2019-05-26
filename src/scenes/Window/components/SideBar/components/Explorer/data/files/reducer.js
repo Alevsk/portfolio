@@ -10,6 +10,7 @@ const initialState = [
 const personal = {
   name: "Lenin Alevski Huerta Arias",
   title: ["Software Engineer", "FullStack Engineer"],
+  email: 'lenin@alevsk.com',
   education: [
     {
       school: "Tecnologico de Monterrey",
@@ -90,7 +91,7 @@ func (s *server) WhoAmI(ctx context.Context, in *pb.EmptyRequest) (*pb.UserInfo,
 
   softwareEngineer := map[string][]string{
     "languages":    []string{"Javascript", "Java", "Golang", "Python", "Ruby", "C#"},
-    "technologies": []string{"RoR", "NodeJS", "GraphQL", "Django", "Flask", "Ruby", "React", "Angular", "GRPC"},
+    "technologies": []string{"RoR", "NodeJS", "GraphQL", "Django", "Flask", "Ruby", "React", "Redux", "Angular", "GRPC"},
     "databases":    []string{"Postgres", "MySql", "Redis", "Cassandra", "Scylladb", "SqlServer"},
     "cloud":        []string{"AWS", "Gcloud", "Kubernetes", "Docker"},
   }
@@ -123,7 +124,7 @@ class TalksProjectService < Sinatra::Base
         fits your needs, contact me to talk since I am usually able to adapt or create content if requested in
         advance.',
       :note => 'Most of the talks and workshops are based on articles I published previously on my personal blog.',
-      :language => 'The slides and material for the talks and workshops is available in English and Spanish.',
+      :language => 'The slides and material for the talks and workshops are available in English and Spanish.',
       :talks => [
         {
           :title => '10 things you should be doing if you care about security in your Tech Startup',
@@ -201,7 +202,54 @@ class TalksProjectService < Sinatra::Base
 end
     `,
   },
-  { id: 3, name: "work.py" },
+  {
+    id: 3,
+    name: "work.py",
+    language: "python",
+    content: `
+from quart import render_template, request, current_app
+from app.work import bp
+
+@bp.route('/', methods=['GET'])
+async def index():
+  # Let's Work together
+  # Send me an email to lenin@alevsk.com
+  core_skills = [
+    'Effective communication in both Spanish and English',
+    'System Architecture',
+    'Object-oriented Analysis and Design',
+    'Refactoring',
+    'Web Development',
+    'Frontend Development',
+    'Backend Development',
+    'Web Application Security'
+    'UNIX-based System Administration',
+  ]
+
+  emerging_skills = [
+    'Public speaking',
+    'Reverse Engineering',
+    'Malware analysis',
+    'Monitoring/intrusion detection',
+    'Hardware/firmware/TPM security',
+  ]
+
+  freelance_work = [
+    'Web Penetration Testing',
+    'Mobile Penetration Testing',
+    'Security Code Review',
+    'Application and Environment Hardening',
+    'Web Development for Short and Mid Size Projects',
+    'Hiring Process Consulting',
+    'Development Process Consulting',
+  ]
+  return await render_template('index.html',
+    core_skills=core_skills,
+    emerging_skills=emerging_skills,
+    freelance_work=freelance_work
+  )
+    `,
+  },
   { id: 4, name: "contact.java" },
 ];
 // console.log(JSON.stringify(initialState))
