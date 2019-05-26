@@ -1,6 +1,7 @@
 import { SELECT, ADD, REMOVE } from '../../../../actions/files/actions';
+import files from './files.json';
 
-const initialState = [];
+const initialState = files;
 
 export const reducer = (state = initialState, action) => {
 	switch (action.type) {
