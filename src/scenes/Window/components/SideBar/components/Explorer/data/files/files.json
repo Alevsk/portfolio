@@ -18,7 +18,4 @@
 	"name": "work.py",
 	"language": "python",
 	"content": "from quart import render_template, request, current_app\nfrom app.work import bp\n\n@bp.route('/', methods=['GET'])\nasync def index():\n  # Let's Work together\n  # Send me an email to lenin@alevsk.com\n  core_skills = [\n    'Effective communication in both Spanish and English',\n    'System Architecture',\n    'Object-oriented Analysis and Design',\n    'Refactoring',\n    'Web Development',\n    'Frontend Development',\n    'Backend Development',\n    'Web Application Security'\n    'UNIX-based System Administration',\n  ]\n\n  emerging_skills = [\n    'Public speaking',\n    'Reverse Engineering',\n    'Malware analysis',\n    'Monitoring/intrusion detection',\n    'Hardware/firmware/TPM security',\n  ]\n\n  freelance_work = [\n    'Web Penetration Testing',\n    'Mobile Penetration Testing',\n    'Security Code Review',\n    'Application and Environment Hardening',\n    'Web Development for Short and Mid Size Projects',\n    'Hiring Process Consulting',\n    'Development Process Consulting',\n  ]\n  return await render_template('index.html',\n    core_skills=core_skills,\n    emerging_skills=emerging_skills,\n    freelance_work=freelance_work\n  )\n    "
-}, {
-	"id": 4,
-	"name": "contact.java"
 }]

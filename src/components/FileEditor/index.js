@@ -3,8 +3,7 @@ import { compose, withHandlers } from 'recompose'
 import { connect } from 'react-redux';
 import Navigation from './components/Navigation';
 import TextEditor from './components/TextEditor';
-
-import { getOpenFiles, getSelectedFile } from './data/files/reducer';
+import { getOpenFiles, getSelectedFile } from './selectors'
 import * as filesActionCreators from '../../actions/files/actions';
 
 import './styles.css';
@@ -25,8 +24,8 @@ function FileEditor(props) {
 }
 
 const mapStateToProps = state => ({
-  files: getOpenFiles(state.FileEditor.data.files),
-  selectedFile: getSelectedFile(state.FileEditor.data.files),
+  files: getOpenFiles(state),
+  selectedFile: getSelectedFile(state),
 });
 
 export default compose(

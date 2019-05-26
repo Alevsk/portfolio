@@ -1,5 +1,5 @@
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faTwitter, faWordpress, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faTwitter, faWordpress, faLinkedin, faTelegram } from '@fortawesome/free-brands-svg-icons'
 
 import { SELECT } from './actions';
 
@@ -9,6 +9,7 @@ const initialState = [
   { id: 'linkedin', icon: faLinkedin, url: 'https://www.linkedin.com/in/alevsk/' },
   { id: 'github', icon: faGithub, url: 'https://github.com/alevsk' },
   { id: 'twitter', icon: faTwitter, url: 'https://twitter.com/alevskey' },
+  { id: 'telegram', icon: faTelegram, url: 'https://telegram.me/alevsk' },
 ];
 
 export const reducer = (state = initialState, action) => {
