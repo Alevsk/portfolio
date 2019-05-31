@@ -1,5 +1,7 @@
 import { createSelector } from 'reselect'
 
+export const getFiles = (state) => state.Window.sideBar.explorer.data.files;
+
 export const getOpenFiles = (state) => state.FileEditor.data.files;
 
 export const getSelectedFile = createSelector(

@@ -16,7 +16,7 @@ export const reducer = (state = initialState, action) => {
       return openFiles.map((file, index) => ({ ...file, selected: (openFiles.length - 1) === index }));
     }
     case SELECT: {
-      const openFiles = state.map((file) => ({ ...file, selected: file.id === action.payload.id }));
+      const openFiles = (action.initialState || state).map((file) => ({ ...file, selected: file.id === action.payload.id }));
       const selectedFiles = openFiles.filter(file => file.selected)
       if (selectedFiles.length > 0) {
         return openFiles;
