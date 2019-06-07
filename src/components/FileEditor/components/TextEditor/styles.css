@@ -2,3 +2,7 @@
   padding-top: 37px;
   width: 100vw;
 }
+
+.TextEditor code span a {
+  color: inherit;
+}
