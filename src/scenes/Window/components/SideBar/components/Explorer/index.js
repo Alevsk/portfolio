@@ -56,9 +56,6 @@ export default compose(
     dispatchOpenFile: ({ dispatch }) => payload => {
       dispatch(filesActionCreators.add(payload));
     },
-    dispatchCloseFile: ({ dispatch }) => payload => {
-      dispatch(filesActionCreators.remove(payload));
-    },
     dispatchToggleSectionOpenEditors: ({ dispatch }) => () => {
       dispatch(sectionOpenEditorsActionCreators.toggle());
     },

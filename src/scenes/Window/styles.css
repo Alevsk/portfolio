@@ -6,20 +6,33 @@
   bottom: 0;
   left: 0;
   display: flex;
-  overflow-x: auto
 }
 
 .Window .StickyBar {
   display: flex;
-  flex: 1 0 auto;
   position: sticky;
   left: 0;
   z-index: 9;
   background-color: #292C35;
 }
 
-.Window .FileEditor {
-  flex: 0 0 auto;
-  overflow: auto;
-  left: 1px;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #21252e;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

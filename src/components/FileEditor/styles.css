@@ -1,3 +1,9 @@
 .FileEditor {
-  position: relative;
+  overflow: scroll;
+  left: 1px;
+  width: 100vw;
+}
+
+.FileEditor .Wrapper {
+
 }

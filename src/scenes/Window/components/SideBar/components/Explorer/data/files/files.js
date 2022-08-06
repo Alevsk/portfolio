@@ -1,10 +1,11 @@
 export const files = [{
   id: 0,
+  page: "whoami",
   name: "welcome.js",
   icon: "file_type_js.svg",
   language: "javascript",
   content: `const personal = {
-    name: "Lenin Alevski Huerta Arias",
+    name: "Lenin Alevski",
     title: ["Security Software Engineer", "FullStack Engineer"],
     email: 'lenin@alevsk.com',
     education: [
@@ -62,6 +63,7 @@ export const files = [{
     `,
 }, {
   id: 1,
+  page: "skills",
   name: "skills.go",
   icon: "file_type_go_gopher.svg",
   language: "go",
@@ -103,6 +105,7 @@ func (s *server) WhoAmI(ctx context.Context, in *pb.EmptyRequest) (*pb.UserInfo,
   `,
 }, {
   id: 2,
+  page: "talks",
   name: "talks.rb",
   icon: "file_type_ruby.svg",
   language: "ruby",
@@ -196,6 +199,7 @@ end
   `,
 }, {
   id: 3,
+  page: "work",
   name: "work.py",
   icon: "file_type_python.svg",
   language: "python",
@@ -243,6 +247,7 @@ async def index():
   `,
 }, {
   id: 4,
+  page: "contact",
   name: "public_key.asc",
   icon: "file_type_binary.svg",
   language: "fix",
@@ -301,6 +306,7 @@ QYS47fKJYfWH6LdEHg==
   `,
 }, {
   id: 5,
+  page: "download",
   name: "Dockerfile",
   icon: "file_type_docker.svg",
   language: "dockerfile",

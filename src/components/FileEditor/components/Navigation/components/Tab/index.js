@@ -8,7 +8,10 @@ function Tab(props) {
   const image = `/images/icons/${props.tab.icon}`;
   return (
     <li
-      onClick={props.onClick}
+      onClick={(e) => {
+        e.stopPropagation();
+        props.onClick()
+      }}
       className={`Tab ${props.tab.selected ? 'active' : ''}`}
     >
       <span className="icon"><img src={image} alt=""/></span>
@@ -20,7 +23,10 @@ function Tab(props) {
           color="#FFFFFF"
           fixedWidth
           className="icon"
-          onClick={props.onClickClose}
+          onClick={(e) => {
+            e.stopPropagation();
+            props.onClickClose()
+          }}
         />
       </span>
     </li>

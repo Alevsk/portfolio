@@ -1,8 +1,11 @@
 import React from 'react';
 import Tab from './components/Tab'
+import { useNavigate } from "react-router-dom";
+
 import './styles.css';
 
 function Navigation(props) {
+  let navigate = useNavigate();
   const files = props.files;
   return (
     <div className="Navigation">
@@ -10,7 +13,10 @@ function Navigation(props) {
         {
           files.map((file) => (<Tab
             key={file.id}
-            onClick={() => props.selectFile(file)}
+            onClick={() => {
+                navigate(`/${file.page}`);
+                props.selectFile(file)
+            }}
             onClickClose={() => props.closeFile(file)}
             tab={file}
             />

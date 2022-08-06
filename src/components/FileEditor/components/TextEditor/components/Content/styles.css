@@ -1,3 +1,9 @@
 .Content {
   text-align: left;
+  padding: 0px !important;
+  overflow-x: visible !important;
+}
+
+.icon404 {
+  opacity: 0.1;
 }

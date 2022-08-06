@@ -1,35 +1,44 @@
 export const files = [{
   id: 0,
   selected: true,
+  page: "whoami",
   icon: "file_type_js.svg",
   name: "welcome.js",
   language: "javascript",
   content: `const personal = {
-  name: "Lenin Alevski Huerta Arias",
-  title: ["Security Software Engineer", "FullStack Engineer"],
+  name: "Lenin Alevski",
+  title: ["Lead Application Security Engineer"],
   email: 'lenin@alevsk.com',
   education: [
     {
       school: "Tecnologico de Monterrey",
       website: "https://tec.mx/es/",
       degree: "BS in Computer Science",
-      field: "Software Engineering & Application Security",
+      fields: ["Software Engineering", "Information Security"],
     },
   ],
   location: ["San Francisco, Bay Area, CA"]
 };
 
-const expertise = ["Software development", "Distributed Systems", "System Architecture", "Information Security"];
+const expertise = ["Application Security", "Cloud Security", "Software Engineering", "Distributed Systems", "System Architecture", "Information Security"];
 
-const interests = ["Cybersecurity", "Microservices", "Cloud", "Scalability"];
+const interests = ["Cybersecurity", "Microservices", "Kubernetes", "Cloud", "Containers", "Scalability"];
 
 const experience = [
+  {
+    company: "MinIO, Inc.",
+    website: "https://min.io/",
+    title: "Security Software Engineer",
+    from: "October 2019",
+    to: "Present",
+    description: "Information security manager, Security Engineering, Application Security & Cloud Security."
+  },
   {
     company: "OneLogin",
     website: "https://www.onelogin.com/",
     title: "Software Engineer",
     from: "January 2019",
-    to: "Present",
+    to: "October 2019",
     description: "Distributed systems Engineer specialized in application security.",
   },
   {

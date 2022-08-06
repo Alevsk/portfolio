@@ -1,12 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from "react-router-dom";
 import FileRow from './components/FileRow'
-
 
 import './styles.css';
 
 function FileExplorer(props) {
+  let navigate = useNavigate();
   const files = props.files;
   const displayFileTree = props.displayFileTree;
   const selectedFile = props.selectedFile || {};
@@ -26,7 +27,10 @@ function FileExplorer(props) {
           <FileRow
             selected={file.id === selectedFile.id}
             key={file.id}
-            onClick={() => props.dispatchSelectFile(file)}
+            onClick={() => {
+                navigate(`/${file.page}`);
+                props.dispatchSelectFile(file)
+            }}
             file={file}
           />)
         }

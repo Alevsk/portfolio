@@ -38,39 +38,37 @@ const rowRenderer = ({
 
 
 const Content = (props) => {
-  return (
+  return props.file.content ? (
     <SyntaxHighlighter
       language={props.file.language}
       style={atomOneDark}
       showLineNumbers
       className="Content"
-      wrapLines
       lineProps={
         {
           style: {
-            whiteSpace: 'pre-wrap',
+            //whiteSpace: 'pre-wrap',
           }
         }
       }
       renderer={rowRenderer}
       lineNumberStyle={{
+        minWidth: 0,
+        width: 25,
         float: 'left',
-        padding: '0px 15px',
+        padding: '0px 15px 0px 0px',
         textAlign: 'right',
         color: 'rgb(77, 80, 89)',
       }}
       lineNumberContainerStyle={
         {
-          float: 'left',
-          padding: '0px 15px',
-          textAlign: 'right',
-          color: '#4D5059',
+          display: "inline-flex",
         }
       }
     >
-      {props.file.content || ''}
+      {props.file.content}
     </SyntaxHighlighter>
-  );
+  ) : (<img className="icon404" alt="" src="/images/icons/sad404.svg" />);
 }
 
 export default Content;

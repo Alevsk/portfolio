@@ -20,10 +20,16 @@ export const reducer = (state = initialState, action) => {
       }));
     case REMOVE: {
       const openFiles = state.filter(file => file.id !== action.payload.id);
-      return openFiles.map((file, index) => ({
-        ...file,
-        selected: (openFiles.length - 1) === index
-      }));
+      const selectedFiles = openFiles.filter(file => file.selected)
+      if (selectedFiles.length > 0) {
+        return openFiles;
+      }
+      return openFiles.map((file, index) => {
+        return ({
+          ...file,
+          selected: (openFiles.length - 1) === index
+        })
+      });
     }
     case SELECT: {
       const openFiles = (action.initialState || state).map((file) => ({
