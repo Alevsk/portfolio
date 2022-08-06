@@ -1,29 +1,26 @@
-import React from 'react';
-import { compose } from 'recompose'
-import { connect } from 'react-redux';
-import ActivityBar from './components/ActivityBar';
-import SideBar from './components/SideBar';
-import FileEditor from '../../components/FileEditor'
+import React from "react";
+import { compose } from "recompose";
+import { connect } from "react-redux";
+import ActivityBar from "./components/ActivityBar";
+import SideBar from "./components/SideBar";
+import FileEditor from "../../components/FileEditor";
 
-import './styles.css';
+import "./styles.css";
 
 function Window(props) {
   return (
     <div className="Window">
       <div className="StickyBar">
         <div className="ActivityBar">
-          <ActivityBar/>
+          <ActivityBar />
         </div>
-        <SideBar/>
+        <SideBar />
       </div>
-      <FileEditor/>
+      <FileEditor />
     </div>
   );
 }
 
-const mapStateToProps = state => ({
-});
+const mapStateToProps = (state) => ({});
 
-export default compose(
-  connect(mapStateToProps),
-)(Window);
+export default compose(connect(mapStateToProps))(Window);

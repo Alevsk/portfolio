@@ -1,11 +1,12 @@
-export const files = [{
-  id: 0,
-  selected: true,
-  page: "whoami",
-  icon: "file_type_js.svg",
-  name: "welcome.js",
-  language: "javascript",
-  content: `const personal = {
+export const files = [
+  {
+    id: 0,
+    selected: true,
+    page: "whoami",
+    icon: "file_type_js.svg",
+    name: "welcome.js",
+    language: "javascript",
+    content: `const personal = {
   name: "Lenin Alevski",
   title: ["Lead Application Security Engineer"],
   email: 'lenin@alevsk.com',
@@ -70,6 +71,7 @@ const experience = [
   },
 ];
   `,
-}];
+  },
+];
 
 export default files;

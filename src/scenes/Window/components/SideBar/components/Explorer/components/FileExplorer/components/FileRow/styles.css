@@ -3,11 +3,11 @@
   padding: 4px 0px 4px 20px;
   cursor: pointer;
   font-size: 14px;
-  color: #CCCCCC;
+  color: #cccccc;
 }
 
 .FileRow:hover {
-  background-color: #292C35;
+  background-color: #292c35;
 }
 
 .FileRow span {

@@ -1,11 +1,11 @@
-import React from 'react';
-import Window from './scenes/Window'
-import './App.css';
+import React from "react";
+import Window from "./scenes/Window";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Window/>
+      <Window />
     </div>
   );
 }

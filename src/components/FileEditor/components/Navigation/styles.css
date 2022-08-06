@@ -1,7 +1,7 @@
 .Navigation {
   font-size: 12px;
   width: 100vw;
-  background-color: #22252E;
+  background-color: #22252e;
   text-align: left;
   position: fixed;
   top: 0;
@@ -15,22 +15,23 @@
 
 .Navigation ul li {
   display: inline;
-  background-color: #22252E;
+  background-color: #22252e;
   border-right: 1px solid #000000;
   padding: 10px;
   cursor: pointer;
 }
 
 .Navigation ul li.active {
-  background-color: #292C35;
+  background-color: #292c35;
 }
 
-.Navigation ul li:hover, .Navigation ul li.active:hover {
-  background-color: #34393F;
+.Navigation ul li:hover,
+.Navigation ul li.active:hover {
+  background-color: #34393f;
 }
 
 .Navigation ul li span.file {
-  color: #6E6F72;
+  color: #6e6f72;
 }
 
 .Navigation ul li span.close {
@@ -38,7 +39,7 @@
 }
 
 .Navigation ul li.active span.file {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .Navigation ul li.active span.close {
@@ -50,9 +51,9 @@
 }
 
 .Navigation ul li span.folder {
-  color: #4F5257;
+  color: #4f5257;
 }
 
 .Navigation ul li.active span.folder {
-  color: #BBBCC1;
+  color: #bbbcc1;
 }

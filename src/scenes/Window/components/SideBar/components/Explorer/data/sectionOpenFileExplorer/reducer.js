@@ -1,17 +1,17 @@
-import { TOGGLE } from './actions';
+import { TOGGLE } from "./actions";
 
 const initialState = {
   display: true,
 };
 
 export const reducer = (state = initialState, action) => {
-	switch (action.type) {
+  switch (action.type) {
     case TOGGLE:
-    	return {
+      return {
         ...state,
         display: !state.display,
-      }
-		default:
-			return state;
-	}
-}
+      };
+    default:
+      return state;
+  }
+};

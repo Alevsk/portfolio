@@ -1,10 +1,10 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretRight, faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretRight, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import FileRow from './components/FileRow'
+import FileRow from "./components/FileRow";
 
-import './styles.css';
+import "./styles.css";
 
 function FileExplorer(props) {
   let navigate = useNavigate();
@@ -15,25 +15,25 @@ function FileExplorer(props) {
     <div className="FileExplorer">
       <div className="divider" onClick={props.toggleDisplayFileTree}>
         <FontAwesomeIcon
-            icon={displayFileTree ? faCaretDown : faCaretRight }
-            color="#FFFFFF"
-            fixedWidth
-            className="icon"
-          />
+          icon={displayFileTree ? faCaretDown : faCaretRight}
+          color="#FFFFFF"
+          fixedWidth
+          className="icon"
+        />
         <span className="title">{props.title}</span>
       </div>
-      <ul className={`files ${!displayFileTree ? 'hidden' : ''}`}>
-        { files.map(file => 
+      <ul className={`files ${!displayFileTree ? "hidden" : ""}`}>
+        {files.map((file) => (
           <FileRow
             selected={file.id === selectedFile.id}
             key={file.id}
             onClick={() => {
-                navigate(`/${file.page}`);
-                props.dispatchSelectFile(file)
+              navigate(`/${file.page}`);
+              props.dispatchSelectFile(file);
             }}
             file={file}
-          />)
-        }
+          />
+        ))}
       </ul>
     </div>
   );

@@ -1,10 +1,11 @@
-export const files = [{
-  id: 0,
-  page: "whoami",
-  name: "welcome.js",
-  icon: "file_type_js.svg",
-  language: "javascript",
-  content: `const personal = {
+export const files = [
+  {
+    id: 0,
+    page: "whoami",
+    name: "welcome.js",
+    icon: "file_type_js.svg",
+    language: "javascript",
+    content: `const personal = {
     name: "Lenin Alevski",
     title: ["Security Software Engineer", "FullStack Engineer"],
     email: 'lenin@alevsk.com',
@@ -61,13 +62,14 @@ export const files = [{
     },
   ];
     `,
-}, {
-  id: 1,
-  page: "skills",
-  name: "skills.go",
-  icon: "file_type_go_gopher.svg",
-  language: "go",
-  content: `package main
+  },
+  {
+    id: 1,
+    page: "skills",
+    name: "skills.go",
+    icon: "file_type_go_gopher.svg",
+    language: "go",
+    content: `package main
 
 import (
   "context"
@@ -103,13 +105,14 @@ func (s *server) WhoAmI(ctx context.Context, in *pb.EmptyRequest) (*pb.UserInfo,
   return &pb.UserInfo{Username: user.Username, UserId: user.ID.Bytes()}, nil
 }
   `,
-}, {
-  id: 2,
-  page: "talks",
-  name: "talks.rb",
-  icon: "file_type_ruby.svg",
-  language: "ruby",
-  content: `require 'sinatra'
+  },
+  {
+    id: 2,
+    page: "talks",
+    name: "talks.rb",
+    icon: "file_type_ruby.svg",
+    language: "ruby",
+    content: `require 'sinatra'
 
 class TalksProjectService < Sinatra::Base
   get "/talks" do
@@ -197,13 +200,14 @@ class TalksProjectService < Sinatra::Base
   end
 end
   `,
-}, {
-  id: 3,
-  page: "work",
-  name: "work.py",
-  icon: "file_type_python.svg",
-  language: "python",
-  content: `from quart import render_template, request, current_app
+  },
+  {
+    id: 3,
+    page: "work",
+    name: "work.py",
+    icon: "file_type_python.svg",
+    language: "python",
+    content: `from quart import render_template, request, current_app
 from app.work import bp
 
 @bp.route('/', methods=['GET'])
@@ -245,13 +249,14 @@ async def index():
     freelance_work=freelance_work
   )  
   `,
-}, {
-  id: 4,
-  page: "contact",
-  name: "public_key.asc",
-  icon: "file_type_binary.svg",
-  language: "fix",
-  content: `-----BEGIN PGP PUBLIC KEY BLOCK-----
+  },
+  {
+    id: 4,
+    page: "contact",
+    name: "public_key.asc",
+    icon: "file_type_binary.svg",
+    language: "fix",
+    content: `-----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQINBGEgI/ABEADIdPPDeBXbhl8loEiVBWHpUiqNKq0NNq1nMi4bTLIPSaX4hf7Z
 3ZCkmJdVvYwSqWpIy2KpVwvZiYzfketOj+VEobR8PlvLVdMPBYGAB6miYKZDAOBc
@@ -304,13 +309,14 @@ QYS47fKJYfWH6LdEHg==
 =0/UU
 -----END PGP PUBLIC KEY BLOCK-----
   `,
-}, {
-  id: 5,
-  page: "download",
-  name: "Dockerfile",
-  icon: "file_type_docker.svg",
-  language: "dockerfile",
-  content: `############################
+  },
+  {
+    id: 5,
+    page: "download",
+    name: "Dockerfile",
+    icon: "file_type_docker.svg",
+    language: "dockerfile",
+    content: `############################
 # Do you like my website?
 # You can have it :)!
 # Download the source code directly from the github repository
@@ -328,6 +334,7 @@ COPY /download    .
 
 CMD ["/download", "--url", "https://github.com/Alevsk/portfolio"]  
 `,
-}]
+  },
+];
 
 export default files;

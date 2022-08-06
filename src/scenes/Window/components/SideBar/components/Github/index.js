@@ -1,8 +1,8 @@
-import React from 'react';
-import { compose, withHandlers } from 'recompose'
-import { connect } from 'react-redux';
+import React from "react";
+import { compose, withHandlers } from "recompose";
+import { connect } from "react-redux";
 
-import './styles.css';
+import "./styles.css";
 
 function Github(props) {
   return (
@@ -14,11 +14,6 @@ function Github(props) {
   );
 }
 
-const mapStateToProps = state => ({
-});
+const mapStateToProps = (state) => ({});
 
-export default compose(
-  connect(mapStateToProps),
-  withHandlers({
-  })
-)(Github);
+export default compose(connect(mapStateToProps), withHandlers({}))(Github);

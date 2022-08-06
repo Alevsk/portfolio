@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import { reducer as filesReducer } from './files/reducer';
+import { reducer as filesReducer } from "./files/reducer";
 
 export const reducer = combineReducers({
-	files: filesReducer,
+  files: filesReducer,
 });

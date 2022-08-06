@@ -1,8 +1,8 @@
-import React from 'react';
-import { compose, withHandlers } from 'recompose'
-import { connect } from 'react-redux';
+import React from "react";
+import { compose, withHandlers } from "recompose";
+import { connect } from "react-redux";
 
-import './styles.css';
+import "./styles.css";
 
 function Search(props) {
   return (
@@ -14,11 +14,6 @@ function Search(props) {
   );
 }
 
-const mapStateToProps = state => ({
-});
+const mapStateToProps = (state) => ({});
 
-export default compose(
-  connect(mapStateToProps),
-  withHandlers({
-  })
-)(Search);
+export default compose(connect(mapStateToProps), withHandlers({}))(Search);

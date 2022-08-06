@@ -1,10 +1,9 @@
 .Explorer {
-
 }
 
 .Explorer .Title {
-  background-color: #22252E;
-  color: #FFFFFF;
+  background-color: #22252e;
+  color: #ffffff;
   font-size: 10px;
   padding: 14px 10px;
   text-align: left;
@@ -16,13 +15,13 @@
 
 .Explorer .FileExplorer ul.files {
   list-style: none;
-  background-color: #22252E;
+  background-color: #22252e;
   padding: 0px;
   margin: 0px;
 }
 
 .Explorer .FileExplorer ul.files li.active {
-  background-color: #292C35;
+  background-color: #292c35;
 }
 
 .divider {

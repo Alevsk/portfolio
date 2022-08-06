@@ -1,8 +1,7 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
-import { reducer as FileEditorReducer } from './components/FileEditor/reducer';
-import { reducer as WindowReducer } from './scenes/Window/reducer';
-
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import thunk from "redux-thunk";
+import { reducer as FileEditorReducer } from "./components/FileEditor/reducer";
+import { reducer as WindowReducer } from "./scenes/Window/reducer";
 
 const appReducer = combineReducers({
   FileEditor: FileEditorReducer,
@@ -10,8 +9,5 @@ const appReducer = combineReducers({
 });
 
 export default function configureStore() {
- return createStore(
-    appReducer,
-    applyMiddleware(thunk)
- );
+  return createStore(appReducer, applyMiddleware(thunk));
 }

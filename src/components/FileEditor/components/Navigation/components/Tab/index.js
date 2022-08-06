@@ -1,8 +1,8 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-import './styles.css';
+import "./styles.css";
 
 function Tab(props) {
   const image = `/images/icons/${props.tab.icon}`;
@@ -10,11 +10,13 @@ function Tab(props) {
     <li
       onClick={(e) => {
         e.stopPropagation();
-        props.onClick()
+        props.onClick();
       }}
-      className={`Tab ${props.tab.selected ? 'active' : ''}`}
+      className={`Tab ${props.tab.selected ? "active" : ""}`}
     >
-      <span className="icon"><img src={image} alt=""/></span>
+      <span className="icon">
+        <img src={image} alt="" />
+      </span>
       <span className="file">{props.tab.name}</span>
       <span className="folder">{props.tab.folder}</span>
       <span className="close">
@@ -25,7 +27,7 @@ function Tab(props) {
           className="icon"
           onClick={(e) => {
             e.stopPropagation();
-            props.onClickClose()
+            props.onClickClose();
           }}
         />
       </span>

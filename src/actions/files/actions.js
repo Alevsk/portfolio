@@ -1,6 +1,6 @@
-export const SELECT = 'FileEditor/data/files/SELECT';
-export const ADD = 'FileEditor/data/files/ADD';
-export const REMOVE = 'FileEditor/data/files/REMOVE';
+export const SELECT = "FileEditor/data/files/SELECT";
+export const ADD = "FileEditor/data/files/ADD";
+export const REMOVE = "FileEditor/data/files/REMOVE";
 
 export const select = (payload, initialState) => ({
   type: SELECT,
@@ -8,12 +8,12 @@ export const select = (payload, initialState) => ({
   initialState,
 });
 
-export const add = payload => ({
+export const add = (payload) => ({
   type: ADD,
   payload,
 });
 
-export const remove = payload => ({
+export const remove = (payload) => ({
   type: REMOVE,
   payload,
 });
