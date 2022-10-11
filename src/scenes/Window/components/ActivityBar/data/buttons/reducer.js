@@ -15,7 +15,7 @@ const initialState = [
   {
     id: "linkedin",
     icon: faLinkedin,
-    url: "https://www.linkedin.com/in/alevsk/",
+    url: "https://www.linkedin.com/in/alevsk",
   },
   { id: "github", icon: faGithub, url: "https://github.com/alevsk" },
   { id: "twitter", icon: faTwitter, url: "https://twitter.com/alevskey" },

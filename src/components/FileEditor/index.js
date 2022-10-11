@@ -17,6 +17,8 @@ class FileEditor extends React.Component {
       if (files.length > 0) {
         const file = files[0];
         this.props.dispatchSelectFile(file, [file]);
+      } else {
+        window.location.href = "/whoami";
       }
     }
   }
