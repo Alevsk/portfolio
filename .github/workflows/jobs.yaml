@@ -1,0 +1,80 @@
+name: Workflow
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+# This ensures that previous jobs for the PR are canceled when the PR is
+# updated.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  ui-assets:
+    name: "React Code Has No Vulnerabilities, Warnings & Prettified"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-version: [1.18.x]
+        os: [ubuntu-latest]
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Read .nvmrc
+        id: node_version
+        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NVMRC }}
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v3
+        id: yarn-cache
+        name: Yarn Cache
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            ./node_modules/
+          key: ${{ runner.os }}-yarn-${{ hashFiles('./yarn.lock') }}
+
+      - uses: actions/cache@v3
+        id: assets-cache
+        name: Assets Cache
+        with:
+          path: |
+            ./build/
+          key: ${{ runner.os }}-assets-${{ github.run_id }}
+
+      - name: Checks for known security issues with the installed packages
+        working-directory: ./
+        continue-on-error: false
+        run: |
+          yarn audit
+
+      - name: Check for Warnings in build output
+        working-directory: ./
+        continue-on-error: false
+        run: |
+          ./check-warnings.sh
+
+      - name: Check if Files are Prettified
+        working-directory: ./
+        continue-on-error: false
+        run: |
+          ./check-prettier.sh
+
+      - name: Install Dependencies
+        working-directory: ./
+        continue-on-error: false
+        run: |
+          yarn install
