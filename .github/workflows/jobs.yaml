@@ -83,4 +83,4 @@ jobs:
         working-directory: ./
         continue-on-error: false
         run: |
-          yarn install --dev
+          yarn install
