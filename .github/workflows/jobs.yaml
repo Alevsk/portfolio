@@ -61,20 +61,26 @@ jobs:
         run: |
           yarn audit
 
+      - name: Install dev dependencies
+        working-directory: ./
+        continue-on-error: false
+        run: |
+          yarn install --dev
+
       - name: Check for Warnings in build output
         working-directory: ./
         continue-on-error: false
         run: |
-          ./check-warnings.sh
+          make test-warnings
 
       - name: Check if Files are Prettified
         working-directory: ./
         continue-on-error: false
         run: |
-          ./check-prettier.sh
+          make test-prettier
 
       - name: Install Dependencies
         working-directory: ./
         continue-on-error: false
         run: |
-          yarn install
+          yarn install --dev
