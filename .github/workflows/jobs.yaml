@@ -20,11 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go-version: [1.18.x]
         os: [ubuntu-latest]
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Read .nvmrc
         id: node_version
@@ -84,3 +83,29 @@ jobs:
         continue-on-error: false
         run: |
           yarn install
+
+  publish-docker:
+    name: Build and push Docker image
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    needs:
+      - ui-assets
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set build time
+        run: |
+          echo "BUILD_TIME=$(date -u +%Y-%m-%dT%H-%M-%SZ 2>/dev/null)" >> $GITHUB_ENV
+          echo "HUMAN_DATE=$(date 2>/dev/null)" >> $GITHUB_ENV
+      - name: Build and push
+        uses: docker/build-push-action@v1
+        with:
+          platforms: linux/amd64
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: alevsk/portfolio
+          push: true
+          build-args: build_time=${{env.HUMAN_DATE }}
+          tags: latest, RELEASE.${{ env.BUILD_TIME }}
