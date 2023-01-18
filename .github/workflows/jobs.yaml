@@ -83,16 +83,31 @@ jobs:
         continue-on-error: false
         run: |
           yarn install
-
-  publish-docker:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    name: Build and push Docker image
+  build-container:
+    name: Build container image
     runs-on: ubuntu-latest
     strategy:
       matrix:
         os: [ubuntu-latest]
     needs:
       - ui-assets
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build container
+        uses: docker/setup-buildx-action@v1
+        run: |
+          make docker
+  build-and-push-container:
+    name: Build and push container image
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    needs:
+      - ui-assets
+      - build-container
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
