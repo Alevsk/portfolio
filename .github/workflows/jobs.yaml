@@ -85,6 +85,7 @@ jobs:
           yarn install
 
   publish-docker:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     name: Build and push Docker image
     runs-on: ubuntu-latest
     strategy:
