@@ -2,7 +2,7 @@ import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
   faTwitter,
-  faWordpress,
+  faBlogger,
   faLinkedin,
   faTelegram,
 } from "@fortawesome/free-brands-svg-icons";
@@ -10,16 +10,36 @@ import {
 import { SELECT } from "./actions";
 
 const initialState = [
-  { id: "explorer", icon: faCopy, selected: true },
-  { id: "wordpress", icon: faWordpress, url: "https://www.alevsk.com" },
+  {
+    id: "explorer",
+    icon: faCopy,
+    selected: true,
+  },
+  {
+    id: "blog",
+    icon: faBlogger,
+    url: "https://www.alevsk.com",
+  },
   {
     id: "linkedin",
     icon: faLinkedin,
     url: "https://www.linkedin.com/in/alevsk",
   },
-  { id: "github", icon: faGithub, url: "https://github.com/alevsk" },
-  { id: "twitter", icon: faTwitter, url: "https://twitter.com/alevskey" },
-  { id: "telegram", icon: faTelegram, url: "https://telegram.me/alevsk" },
+  {
+    id: "github",
+    icon: faGithub,
+    url: "https://github.com/alevsk",
+  },
+  {
+    id: "twitter",
+    icon: faTwitter,
+    url: "https://twitter.com/alevskey",
+  },
+  {
+    id: "telegram",
+    icon: faTelegram,
+    url: "https://telegram.me/alevsk",
+  },
 ];
 
 export const reducer = (state = initialState, action) => {
