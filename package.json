@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
     "@fortawesome/free-brands-svg-icons": "^5.8.2",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
@@ -50,6 +51,7 @@
   },
   "resolutions": {
     "nth-check": "^2.0.1",
-    "minimatch": "^3.0.5"
+    "minimatch": "^3.0.5",
+    "postcss": ">=8.4.31 "
   }
 }

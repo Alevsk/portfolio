@@ -33,11 +33,19 @@ const interests = [
 
 const experience = [
   {
+    company: "Google",
+    website: "https://www.google.com/",
+    title: "Security Engineer",
+    from: "Nov 2022",
+    to: "Present",
+    description: "Ensure that Alphabet's use of GCP is secure by default.",
+  },
+  {
     company: "MinIO, Inc.",
     website: "https://min.io/",
     title: "Security Software Engineer",
     from: "October 2019",
-    to: "Present",
+    to: "Nov 2022",
     description:
       "Information security manager, Security Engineering, Application Security & Cloud Security.",
   },
