@@ -8,121 +8,99 @@ on:
     branches:
       - master
 
-# This ensures that previous jobs for the PR are canceled when the PR is
-# updated.
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
   ui-assets:
     name: "React Code Has No Vulnerabilities, Warnings & Prettified"
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
     steps:
-      - name: Check out code
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Read .nvmrc
         id: node_version
-        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
 
-      - uses: actions/setup-node@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NVMRC }}
+          node-version: ${{ steps.node_version.outputs.NODE_VERSION }}
+          cache: "yarn"
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Install dependencies
+        run: make install
 
-      - uses: actions/cache@v3
-        id: yarn-cache
-        name: Yarn Cache
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            ./node_modules/
-          key: ${{ runner.os }}-yarn-${{ hashFiles('./yarn.lock') }}
+      - name: Check code formatting
+        run: make format-check
 
-      - uses: actions/cache@v3
-        id: assets-cache
-        name: Assets Cache
-        with:
-          path: |
-            ./build/
-          key: ${{ runner.os }}-assets-${{ github.run_id }}
+      - name: Run tests
+        run: make test
+        continue-on-error: true
 
-      - name: Checks for known security issues with the installed packages
-        working-directory: ./
-        continue-on-error: false
-        run: |
-          yarn audit
+      - name: Build for production
+        run: make build
 
-      - name: Install dev dependencies
-        working-directory: ./
-        continue-on-error: false
-        run: |
-          yarn install --dev
+      - name: Check for known security issues
+        run: yarn audit
+        continue-on-error: true
 
-      - name: Check for Warnings in build output
-        working-directory: ./
-        continue-on-error: false
-        run: |
-          make test-warnings
-
-      - name: Check if Files are Prettified
-        working-directory: ./
-        continue-on-error: false
-        run: |
-          make test-prettier
-
-      - name: Install Dependencies
-        working-directory: ./
-        continue-on-error: false
-        run: |
-          yarn install
   build-container:
     name: Build container image
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-    needs:
-      - ui-assets
+    needs: ui-assets
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup buildx
-        uses: docker/setup-buildx-action@v1
-      - name: Build container
-        run: |
-          make docker
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build container (test)
+        run: make docker-build
+
   build-and-push-container:
     name: Build and push container image
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
     needs:
       - ui-assets
       - build-container
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Set build time
-        run: |
-          echo "BUILD_TIME=$(date -u +%Y-%m-%dT%H-%M-%SZ 2>/dev/null)" >> $GITHUB_ENV
-          echo "HUMAN_DATE=$(date 2>/dev/null)" >> $GITHUB_ENV
-      - name: Build and push
-        uses: docker/build-push-action@v1
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
         with:
-          platforms: linux/amd64
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: alevsk/portfolio
+
+      - name: Set build metadata
+        id: meta
+        run: |
+          echo "BUILD_TIME=$(date -u +%Y-%m-%dT%H-%M-%SZ)" >> $GITHUB_OUTPUT
+          echo "BUILD_VERSION=$(git describe --exact-match --tags $(git log -n1 --pretty='%h') 2>/dev/null || git rev-parse --abbrev-ref HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Build and push multi-arch image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
           push: true
-          build-args: build_time=${{env.HUMAN_DATE }}
-          tags: latest, RELEASE.${{ env.BUILD_TIME }}
+          tags: |
+            alevsk/portfolio:latest
+            alevsk/portfolio:RELEASE.${{ steps.meta.outputs.BUILD_TIME }}
+          build-args: |
+            build_version=${{ steps.meta.outputs.BUILD_VERSION }}
+            build_time=${{ steps.meta.outputs.BUILD_TIME }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

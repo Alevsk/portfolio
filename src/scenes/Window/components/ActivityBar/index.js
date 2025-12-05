@@ -33,5 +33,5 @@ export default compose(
       (payload) => {
         dispatch(buttonsActionCreators.select(payload));
       },
-  })
+  }),
 )(ActivityBar);
