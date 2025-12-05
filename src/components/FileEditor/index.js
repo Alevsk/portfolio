@@ -57,5 +57,5 @@ export default compose(
       (payload) => {
         dispatch(filesActionCreators.remove(payload));
       },
-  })
+  }),
 )(FileEditor);

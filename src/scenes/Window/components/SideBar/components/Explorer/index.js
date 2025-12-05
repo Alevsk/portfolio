@@ -75,5 +75,5 @@ export default compose(
       () => {
         dispatch(sectionOpenFileExplorerActionCreators.toggle());
       },
-  })
+  }),
 )(Explorer);

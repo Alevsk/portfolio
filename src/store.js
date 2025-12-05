@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
-import thunk from "redux-thunk";
+import { thunk } from "redux-thunk";
 import { reducer as FileEditorReducer } from "./components/FileEditor/reducer";
 import { reducer as WindowReducer } from "./scenes/Window/reducer";
 
